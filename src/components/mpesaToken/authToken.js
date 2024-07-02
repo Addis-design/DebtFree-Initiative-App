@@ -1,13 +1,16 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
+// import buffer
+import { Buffer } from 'buffer';
+
 const getOAuthToken = async () => {
-  const consumerKey = 'wXH5OuHrveZHQ8WJK744wKFwpGMs2vGshDA8wsfmx6VrkxyH';
-  const consumerSecret = 'Yhc0xnRN8zsEkqFLJXg1ENzJLMGHDGcG8IvPvcJaNrFz8Zz6RPgjZTmEba6isztx';
+  const consumerKey = 'cP39RABALu8YGcaCXbZsuwTdZUQ7ABsBEumcsO6AOCEnDsQd';
+  const consumerSecret = '3IdJyLrn0Legbqp99XFHis32OJQKvV6k44yzVCOsiFLZ9kyvm5kA7JiQDNGQAEnk';
   
   const token = Buffer.from(`${consumerKey}:${consumerSecret}`).toString('base64');
   try {
-    const response = await axios.post('https://api.daja.co.ke/oauth/token', {
+    const response = await axios.post('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials', {
       grant_type: 'client_credentials',
     }, {
       headers: {
