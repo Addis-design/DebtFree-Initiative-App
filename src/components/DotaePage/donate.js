@@ -1,15 +1,31 @@
 import React, { useState } from 'react';
 import NavLink from '../NaBar/navBar';
+
+// import authToken
+import getOAuthToken from '../mpesaToken/authToken';
+
 const DonatePage = () => {
   const [donationAmount, setDonationAmount] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isRecurring, setIsRecurring] = useState(false);
 
   const handleDonate = (e) => {
+
     e.preventDefault();
+
+    var data = {
+      donationAmount: donationAmount,
+      paymentMethod: paymentMethod,
+      isRecurring: isRecurring
+    }
     // Here you would typically handle the donation process
-    console.log('Donation submitted:', { donationAmount, paymentMethod, isRecurring });
-    alert('Thank you for your donation! (This is a demo - no actual donation was processed)');
+    // console.log('Donation submitted:', { donationAmount, paymentMethod, isRecurring });
+    // alert('Thank you for your donation! (This is a demo - no actual donation was processed)');
+
+    console.log("You are in the right place");
+    var token = getOAuthToken();
+    console.log(token);
+
   };
 
   return (
